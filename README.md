@@ -236,4 +236,110 @@ namespace Solution
 }
 ```
 
-... to be continued
+## Exercices
+### 1. Library Management System
+
+#### Context
+We want to create a small library application in C# where a user can view available books, add new ones, and borrow them.
+
+#### Instructions
+
+1. **Book Class**
+   - Create a class called `Book` with the following properties:
+     - `Title` (string)
+     - `Author` (string)
+     - `IsBorrowed` (boolean, indicating if the book is borrowed)
+   - Add a constructor to initialize the title and author of a book, setting `IsBorrowed` to `false` by default.
+   - Add a method `Borrow()` that checks if the book is already borrowed. If it is not, set `IsBorrowed` to `true` and indicate that the book has been borrowed. If the book is already borrowed, display an appropriate message.
+
+2. **Library Class**
+   - Create a class called `Library` with a list of books (`List<Book> Books`).
+   - Add a method `AddBook(Book book)` to add a book to the list.
+   - Add a method `ListBooks()` to display all books in the library, showing their status (borrowed or available).
+   - Add a method `BorrowBook(string title)` to search for a book by title. If the book is found and is not already borrowed, it is borrowed by calling its `Borrow()` method.
+
+3. **Main Class**
+   - In the `Main` method, create an instance of `Library`.
+   - Add a few books to the library.
+   - Display the list of books.
+   - Try to borrow a book.
+   - Re-display the list to verify the book's borrowed status.
+
+### 2.Student Management System
+
+#### Context
+You will create a simple Student Management System where you can add, display, and manage students' grades in different subjects. 
+
+#### Instructions
+
+1. **Student Class**
+   - Create a class called `Student` with the following properties:
+     - `Name` (string) – the name of the student.
+     - `Age` (int) – the student’s age.
+     - `Grades` (Dictionary<string, int>) – a dictionary where each key is a subject (string) and each value is a grade (int).
+   - Add a constructor to initialize the student’s name and age. Initialize `Grades` as an empty dictionary.
+   - Add a method `AddGrade(string subject, int grade)` to add a grade for a specific subject. If the subject already exists in the dictionary, update the grade.
+   - Add a method `GetAverageGrade()` to calculate and return the average grade across all subjects.
+
+2. **School Class**
+   - Create a class called `School` with a list of students (`List<Student> Students`).
+   - Add a method `AddStudent(Student student)` to add a new student to the list.
+   - Add a method `ListStudents()` that displays all students’ names, ages, and average grades.
+   - Add a method `FindStudent(string name)` that searches for a student by name. If found, display their grades in each subject and their average grade.
+
+3. **Main Class**
+   - In the `Main` method, create an instance of `School`.
+   - Add a few students to the school and add grades for multiple subjects.
+   - Display the list of all students with their average grades.
+   - Search for a specific student by name and display their detailed grade report.
+
+### 3. Advanced Task Management System
+
+#### Context
+In this exercise, you will create a Task Management System where users can create and manage tasks, assign them to team members, set deadlines, and manage task priorities.
+
+#### Instructions
+
+1. **Enum for Task Priority**
+   - Create an `enum` called `PriorityLevel` with the following values:
+     - `Low`
+     - `Medium`
+     - `High`
+     - `Critical`
+
+2. **Class Task**
+   - Create a class called `Task` with the following properties:
+     - `Title` (string) – the title of the task.
+     - `Description` (string) – a brief description of the task.
+     - `AssignedTo` (string) – the name of the person assigned to the task.
+     - `DueDate` (DateTime) – the deadline for the task.
+     - `Priority` (PriorityLevel) – the priority of the task.
+     - `IsCompleted` (bool) – a boolean indicating whether the task is completed.
+   - Add a constructor to initialize all properties except `IsCompleted`, which should default to `false`.
+   - Add a method `CompleteTask()` to set `IsCompleted` to `true`.
+   - Add a method `IsOverdue()` that returns `true` if the current date is past the task’s `DueDate` and the task is not completed; otherwise, it returns `false`.
+
+3. **Class Project**
+   - Create a class called `Project` with the following properties:
+     - `Name` (string) – the name of the project.
+     - `Tasks` (List<Task>) – a list of tasks within the project.
+   - Add a method `AddTask(Task task)` to add a task to the project.
+   - Add a method `GetOverdueTasks()` that returns a list of all overdue tasks in the project.
+   - Add a method `ListTasksByPriority(PriorityLevel priority)` to display all tasks that match a specified priority level.
+   - Add a method `CompleteTask(string title)` that marks a task with a specific title as completed.
+
+4. **Class TaskManager**
+   - Create a class called `TaskManager` to manage multiple projects with the following properties:
+     - `Projects` (List<Project>) – a list of projects.
+   - Add a method `AddProject(Project project)` to add a new project.
+   - Add a method `GetTasksByAssignedUser(string user)` to return a list of all tasks assigned to a specific user across all projects.
+   - Add a method `ListAllOverdueTasks()` to display all overdue tasks across all projects.
+   - Add a method `ListAllTasksByPriority(PriorityLevel priority)` to display all tasks across all projects that match a given priority.
+
+5. **Main Class**
+   - In the `Main` method:
+     - Create an instance of `TaskManager`.
+     - Add a few projects and tasks with varying priorities, deadlines, and assigned users.
+     - Display the list of all overdue tasks.
+     - List all tasks by a specific priority level.
+     - Find and list all tasks assigned to a particular user.
