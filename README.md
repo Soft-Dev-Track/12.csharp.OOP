@@ -245,53 +245,92 @@ We want to create a small library application in C# where a user can view availa
 #### Instructions
 
 1. **Book Class**
-   - Create a class called `Book` with the following properties:
-     - `Title` (string)
-     - `Author` (string)
-     - `IsBorrowed` (boolean, indicating if the book is borrowed)
-   - Add a constructor to initialize the title and author of a book, setting `IsBorrowed` to `false` by default.
-   - Add a method `Borrow()` that checks if the book is already borrowed. If it is not, set `IsBorrowed` to `true` and indicate that the book has been borrowed. If the book is already borrowed, display an appropriate message.
+ - Create a class called `Book` with the following properties:
+    - `Title` (string): The title of the book.
+    - `Author` (string): The author of the book.
+    - `Genre` (string): The genre of the book.
+    - `IsBorrowed` (bool): Indicates if the book is currently borrowed.
+   - Add a constructor to initialize the title, author, and genre of a book, setting `IsBorrowed` to `false` by default.
+   - Add a method `Borrow()` that checks if the book is already borrowed. If it is not, set `IsBorrowed` to `true` and display a message indicating that the book has been borrowed. If the book is already borrowed, display a message that it’s unavailable.
+   - Add a method `ReturnBook()` to set `IsBorrowed` to `false` and indicate that the book has been returned.
 
 2. **Library Class**
    - Create a class called `Library` with a list of books (`List<Book> Books`).
-   - Add a method `AddBook(Book book)` to add a book to the list.
-   - Add a method `ListBooks()` to display all books in the library, showing their status (borrowed or available).
-   - Add a method `BorrowBook(string title)` to search for a book by title. If the book is found and is not already borrowed, it is borrowed by calling its `Borrow()` method.
+   - Add methods to:
+    - `AddBook(Book book)`: Add a book to the list.
+    - `ListBooks()`: Display all books in the library, showing their title, author, genre, and status (borrowed or available).
+    - `ListBooksByGenre(string genre)`: Display all books of a specified genre.
+    - `BorrowBook(string title)`: Search for a book by title. If the book is found and not borrowed, call its `Borrow()` method. Otherwise, display a message that it’s unavailable.
+    - `ReturnBook(string title)`: Search for a book by title and, if it’s borrowed, call its `ReturnBook()` method to make it available again.
 
-3. **Main Class**
-   - In the `Main` method, create an instance of `Library`.
-   - Add a few books to the library.
-   - Display the list of books.
-   - Try to borrow a book.
-   - Re-display the list to verify the book's borrowed status.
+3. **Patron Class**
+   - Create a `Patron` class to represent a library user with the following properties:
+    - `Name` (string): The name of the patron.
+    - `BorrowedBooks` (List<Book>): A list of books borrowed by this patron.
+   - Add methods to:
+    - `BorrowBook(Book book)`: Add a book to the `BorrowedBooks` list.
+    - `ReturnBook(Book book)`: Remove a book from `BorrowedBooks`.
+
+4. **Library System Class**
+   - Create a `LibrarySystem` class to manage patrons and the library with the following properties:
+    - `Library` (Library): An instance of the Library class.
+    - `Patrons` (List<Patron>): A list of patrons.
+   - Add methods to:
+    - `AddPatron(Patron patron)`: Add a patron to the system.
+    - `BorrowBook(string patronName, string title)`: Search for the patron by name and borrow the book by title, if available.
+    - `ReturnBook(string patronName, string title)`: Search for the patron by name and return the book by title, if it’s borrowed by the patron.
+    - `ListBorrowedBooks(string patronName)`: Display all books currently borrowed by a specific patron.
+
+5. **Main Class**
+   - In the `Main` method:
+    - Create an instance of `LibrarySystem`.
+    - Add a few books to the library.
+    - Register some patrons.
+    - Borrow and return books for patrons, and display borrowed books.
+    - Use `ListBooksByGenre` to display books by genre.
+
 
 ### 2.Student Management System
 
-#### Context
-You will create a simple Student Management System where you can add, display, and manage students' grades in different subjects. 
-
-#### Instructions
-
 1. **Student Class**
    - Create a class called `Student` with the following properties:
-     - `Name` (string) – the name of the student.
-     - `Age` (int) – the student’s age.
-     - `Grades` (Dictionary<string, int>) – a dictionary where each key is a subject (string) and each value is a grade (int).
-   - Add a constructor to initialize the student’s name and age. Initialize `Grades` as an empty dictionary.
-   - Add a method `AddGrade(string subject, int grade)` to add a grade for a specific subject. If the subject already exists in the dictionary, update the grade.
-   - Add a method `GetAverageGrade()` to calculate and return the average grade across all subjects.
+     - `Name` (string): The name of the student.
+     - `Age` (int): The student’s age.
+     - `Grades` (List<Grade>): A list of grades, where each grade includes a subject and a score.
+   - Add a constructor to initialize the student’s name and age, with an empty list for `Grades`.
+   - Add methods to:
+     - `AddGrade(string subject, int score)`: Add a grade for a specific subject. If a grade for the subject already exists, update the score.
+     - `GetAverageGrade()`: Calculate and return the student’s average grade across all subjects.
+     - `ListGrades()`: Display the student’s grades for each subject.
 
-2. **School Class**
-   - Create a class called `School` with a list of students (`List<Student> Students`).
-   - Add a method `AddStudent(Student student)` to add a new student to the list.
-   - Add a method `ListStudents()` that displays all students’ names, ages, and average grades.
-   - Add a method `FindStudent(string name)` that searches for a student by name. If found, display their grades in each subject and their average grade.
+2. **Grade Class**
+   - Create a class called `Grade` with the following properties:
+     - `Subject` (string): The name of the subject.
+     - `Score` (int): The grade or score the student received.
+   - Use this class to represent individual grades within the `Grades` list in the `Student` class.
 
-3. **Main Class**
-   - In the `Main` method, create an instance of `School`.
-   - Add a few students to the school and add grades for multiple subjects.
-   - Display the list of all students with their average grades.
-   - Search for a specific student by name and display their detailed grade report.
+3. **School Class**
+   - Create a class called `School` with a list of students (`List<Student>`).
+   - Add methods to:
+     - `AddStudent(Student student)`: Add a new student to the list.
+     - `ListStudents()`: Display all students with their names, ages, and average grades.
+     - `FindStudent(string name)`: Search for a student by name. If found, display their grades for each subject and their average grade.
+     - `ListTopStudents(int topN)`: Display the top N students with the highest average grades.
+
+4. **SchoolReport Class**
+   - Create a class called `SchoolReport` to generate reports for students with the following methods:
+     - `GenerateReportCard(Student student)`: Generate a detailed report card for a single student, listing their grades and average grade.
+     - `GenerateOverallReport(School school)`: Generate a summary report of all students in the school, showing each student’s name, age, and average grade.
+
+5. **Main Class**
+   - In the `Main` method:
+     - Create an instance of `School`.
+     - Add a few students with grades in multiple subjects.
+     - Use `ListStudents()` to display a list of all students with their average grades.
+     - Use `FindStudent()` to look up a specific student by name and display their grade report.
+     - Use `ListTopStudents()` to display the top N students with the highest average grades.
+     - Generate a detailed report for a specific student and an overall report for the school.
+
 
 ### 3. Advanced Task Management System
 
@@ -307,39 +346,59 @@ In this exercise, you will create a Task Management System where users can creat
      - `High`
      - `Critical`
 
-2. **Class Task**
+2. **Task Class**
    - Create a class called `Task` with the following properties:
-     - `Title` (string) – the title of the task.
-     - `Description` (string) – a brief description of the task.
-     - `AssignedTo` (string) – the name of the person assigned to the task.
-     - `DueDate` (DateTime) – the deadline for the task.
-     - `Priority` (PriorityLevel) – the priority of the task.
-     - `IsCompleted` (bool) – a boolean indicating whether the task is completed.
-   - Add a constructor to initialize all properties except `IsCompleted`, which should default to `false`.
-   - Add a method `CompleteTask()` to set `IsCompleted` to `true`.
-   - Add a method `IsOverdue()` that returns `true` if the current date is past the task’s `DueDate` and the task is not completed; otherwise, it returns `false`.
+     - `Title` (string): The title of the task.
+     - `Description` (string): A brief description of the task.
+     - `AssignedTo` (string): The name of the team member assigned to the task.
+     - `DueDate` (DateTime): The deadline for the task.
+     - `Priority` (PriorityLevel): The priority level of the task.
+     - `IsCompleted` (bool): Indicates whether the task is completed.
+   - Initialize all properties in a constructor, with `IsCompleted` set to `false` by default.
+   - Add methods to:
+     - `CompleteTask()`: Mark the task as completed by setting `IsCompleted` to `true`.
+     - `IsOverdue()`: Check if the current date is past `DueDate` and if `IsCompleted` is `false`. If so, return `true`; otherwise, return `false`.
 
-3. **Class Project**
+3. **Project Class**
    - Create a class called `Project` with the following properties:
-     - `Name` (string) – the name of the project.
-     - `Tasks` (List<Task>) – a list of tasks within the project.
-   - Add a method `AddTask(Task task)` to add a task to the project.
-   - Add a method `GetOverdueTasks()` that returns a list of all overdue tasks in the project.
-   - Add a method `ListTasksByPriority(PriorityLevel priority)` to display all tasks that match a specified priority level.
-   - Add a method `CompleteTask(string title)` that marks a task with a specific title as completed.
+     - `Name` (string): The name of the project.
+     - `Tasks` (List<Task>): A list of tasks associated with the project.
+   - Add methods to:
+     - `AddTask(Task task)`: Add a task to the `Tasks` list.
+     - `GetOverdueTasks()`: Return a list of all overdue tasks in the project.
+     - `ListTasksByPriority(PriorityLevel priority)`: Display all tasks that match the specified priority level.
+     - `CompleteTask(string title)`: Find and mark a task with the given title as completed.
+     - `ListTasksByUser(string user)`: Display all tasks in the project assigned to a specific user.
+     - `ListCompletedTasks()`: Display all tasks in the project that are marked as completed.
 
-4. **Class TaskManager**
+4. **TaskManager Class**
    - Create a class called `TaskManager` to manage multiple projects with the following properties:
-     - `Projects` (List<Project>) – a list of projects.
-   - Add a method `AddProject(Project project)` to add a new project.
-   - Add a method `GetTasksByAssignedUser(string user)` to return a list of all tasks assigned to a specific user across all projects.
-   - Add a method `ListAllOverdueTasks()` to display all overdue tasks across all projects.
-   - Add a method `ListAllTasksByPriority(PriorityLevel priority)` to display all tasks across all projects that match a given priority.
+     - `Projects` (List<Project>): A list of projects within the task management system.
+   - Add methods to:
+     - `AddProject(Project project)`: Add a new project to the system.
+     - `GetTasksByAssignedUser(string user)`: Return a list of all tasks assigned to a specific user across all projects.
+     - `ListAllOverdueTasks()`: Display all overdue tasks across all projects.
+     - `ListAllTasksByPriority(PriorityLevel priority)`: Display all tasks across all projects that match the specified priority level.
+     - `ListTasksByProject(string projectName)`: Display all tasks within a specific project.
+     - `GenerateReport()`: Display a summary report listing each project with its total number of tasks, completed tasks, and overdue tasks.
 
-5. **Main Class**
+5. **TaskReport Class**
+   - Create a class called `TaskReport` with methods to generate detailed reports for tasks:
+     - `GenerateProjectReport(Project project)`: Display a detailed report of all tasks in a project, grouped by status (completed, overdue, or pending).
+     - `GenerateUserReport(string user, TaskManager taskManager)`: Display all tasks assigned to a specific user across all projects, listing completed, overdue, and pending tasks.
+     - `GenerateSystemReport(TaskManager taskManager)`: Generate an overview of all projects, showing the total tasks, overdue tasks, and completed tasks for each project.
+
+6. **Main Class**
    - In the `Main` method:
      - Create an instance of `TaskManager`.
-     - Add a few projects and tasks with varying priorities, deadlines, and assigned users.
-     - Display the list of all overdue tasks.
-     - List all tasks by a specific priority level.
-     - Find and list all tasks assigned to a particular user.
+     - Add a few projects with tasks, setting a variety of priorities, deadlines, and assigned users.
+     - Display a list of all overdue tasks.
+     - List all tasks by priority (e.g., showing only high-priority tasks).
+     - List all tasks assigned to a specific user across all projects.
+     - Use `GenerateReport()` from `TaskManager` to show a summary of all projects.
+     - Use `GenerateProjectReport` and `GenerateUserReport` in `TaskReport` for specific projects and users.
+
+
+--- 
+
+![](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjRjaXRpMTllb3FqYjgyNmlod3FpaXh3eGI5Zmw0YWViaThmMzF4aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZdZzsgdkDB91ZPKwdW/giphy.gif)
