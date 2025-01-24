@@ -97,7 +97,7 @@ It is important to know that in advance for the two next exercices to come.
 
 ## 3. Composition vs agregation
 
-n C#, composition and aggregation define how objects relate to one another, and both are examples of "has-a" relationships. Let’s explore each concept in detail to understand when and why to use them.
+In C#, composition and aggregation define how objects relate to one another, and both are examples of "has-a" relationships. Let’s explore each concept in detail to understand when and why to use them.
 
 ### Composition
 
@@ -251,8 +251,17 @@ We want to create a small library application in C# where a user can view availa
     - `Genre` (string): The genre of the book.
     - `IsBorrowed` (bool): Indicates if the book is currently borrowed.
    - Add a constructor to initialize the title, author, and genre of a book, setting `IsBorrowed` to `false` by default.
-   - Add a method `Borrow()` that checks if the book is already borrowed. If it is not, set `IsBorrowed` to `true` and display a message indicating that the book has been borrowed. If the book is already borrowed, display a message that it’s unavailable.
-   - Add a method `ReturnBook()` to set `IsBorrowed` to `false` and indicate that the book has been returned.
+   - Add a Borrow() method:
+        - This method should check if the book is already borrowed:
+            - If the book is not borrowed, set IsBorrowed to true and display a message (e.g., using Console.WriteLine) indicating that the book has been successfully borrowed.
+            - If the book is already borrowed, display a message (using Console.WriteLine) indicating that the book is unavailable.
+        - The method returns a string.
+
+    - Add a ReturnBook() method:
+        - This method should check if the book is currently borrowed:
+            - If the book is borrowed, set IsBorrowed to false and display a message (e.g., using Console.WriteLine) indicating that the book has been successfully returned.
+            - If the book is not borrowed, display a message indicating that there is nothing to return.
+        - The method returns a string.
 
 2. **Library Class**
    - Create a class called `Library` with a list of books (`List<Book> Books`).

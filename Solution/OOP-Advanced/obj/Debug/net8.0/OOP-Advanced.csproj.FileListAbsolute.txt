@@ -1,0 +1,15 @@
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\bin\Debug\net8.0\OOP-Advanced.exe
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\bin\Debug\net8.0\OOP-Advanced.deps.json
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\bin\Debug\net8.0\OOP-Advanced.runtimeconfig.json
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\bin\Debug\net8.0\OOP-Advanced.dll
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\bin\Debug\net8.0\OOP-Advanced.pdb
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\obj\Debug\net8.0\OOP-Advanced.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\obj\Debug\net8.0\OOP-Advanced.AssemblyInfoInputs.cache
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\obj\Debug\net8.0\OOP-Advanced.AssemblyInfo.cs
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\obj\Debug\net8.0\OOP-Advanced.csproj.CoreCompileInputs.cache
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\obj\Debug\net8.0\OOP-Advanced.sourcelink.json
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\obj\Debug\net8.0\OOP-Advanced.dll
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\obj\Debug\net8.0\refint\OOP-Advanced.dll
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\obj\Debug\net8.0\OOP-Advanced.pdb
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\obj\Debug\net8.0\OOP-Advanced.genruntimeconfig.cache
+C:\Users\BeCode\OneDrive\Documents\csharp-BeCode\Github_Classroom\12.csharp.OOP.Advanced\Solution\OOP-Advanced\obj\Debug\net8.0\ref\OOP-Advanced.dll
